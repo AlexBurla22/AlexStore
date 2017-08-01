@@ -1,0 +1,5 @@
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\ConnectDB\bin\Debug\ConnectDB.dll
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\ConnectDB\bin\Debug\ConnectDB.pdb
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\ConnectDB\obj\Debug\ConnectDB.csprojResolveAssemblyReference.cache
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\ConnectDB\obj\Debug\ConnectDB.dll
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\ConnectDB\obj\Debug\ConnectDB.pdb

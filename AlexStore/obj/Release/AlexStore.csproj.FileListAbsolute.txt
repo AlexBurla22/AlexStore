@@ -1,0 +1,12 @@
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\bin\Release\AlexStore.exe
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\bin\Release\AlexStore.pdb
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\bin\Release\ConnectDB.dll
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\bin\Release\ConnectDB.pdb
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\obj\Release\AlexStore.csprojResolveAssemblyReference.cache
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\obj\Release\AlexStore.AddProduct.resources
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\obj\Release\AlexStore.MainWindow.resources
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\obj\Release\AlexStore.Properties.Resources.resources
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\obj\Release\AlexStore.UpdateStock.resources
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\obj\Release\AlexStore.csproj.GenerateResource.Cache
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\obj\Release\AlexStore.exe
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\obj\Release\AlexStore.pdb
