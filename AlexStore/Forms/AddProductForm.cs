@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ConnectDB;
 
 namespace AlexStore
 {
@@ -35,14 +36,14 @@ namespace AlexStore
                 //Product.AddProduct(product);
 
                 addedLabel.Text = "Product was added!";
-            }        
+            }
         }
 
         private bool ValidateControls()
         {
             bool IsValid = true;
 
-            if (!Validation.ValidateControl(nameBox,Validation.ValidationType.Default))
+            if (!Validation.ValidateControl(nameBox, Validation.ValidationType.Default))
             {
                 IsValid = false;
             }

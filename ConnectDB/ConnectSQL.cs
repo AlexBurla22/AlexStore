@@ -11,6 +11,13 @@ namespace ConnectDB
 {
     public class ConnectSQL
     {
+        //public enum ActionType
+        //{
+        //    AddProduct = 1,
+        //    AddStock,
+        //    MakeSale
+        //}
+
         public static SqlConnection
             GetDBConnection(string datasource, string database, string user, string pswd)
         {
@@ -33,10 +40,37 @@ namespace ConnectDB
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
                 return null;
             }
         }
+
+        //public static void SendAction(ActionType type, string description)
+        //{
+        //    try
+        //    {
+        //        using (SqlCommand cmd = new SqlCommand())
+        //        {
+        //            SqlConnection conn = new SqlConnection();
+        //            conn = OpenConnection();
+
+        //            cmd.Connection = conn;
+        //            cmd.CommandText = "INSERT INTO Audit(DateTime, ActionType, Description)" +
+        //                "VALUES(@dateTime, @actionType, @description);";
+
+        //            cmd.Parameters.AddWithValue("@dateTime", DateTime.Now);
+        //            cmd.Parameters.AddWithValue("@actionType", type);
+        //            cmd.Parameters.AddWithValue("@description", description);
+
+        //            cmd.ExecuteNonQuery();
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message);
+        //    }
+
+        //}
 
         public static void CloseConnection(SqlConnection conn)
         {
