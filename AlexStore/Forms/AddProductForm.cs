@@ -70,6 +70,5 @@ namespace AlexStore
             return IsValid;
         }
     }
-
 }
 
