@@ -15,6 +15,7 @@ namespace AlexStore.Forms
     public partial class ProductListForm : Form
     {
         DataTable dt;
+
         public ProductListForm(int saleID)
         {
             InitializeComponent();
@@ -39,7 +40,6 @@ namespace AlexStore.Forms
 
                     return table;
                 }
-
             }
         }
     }
