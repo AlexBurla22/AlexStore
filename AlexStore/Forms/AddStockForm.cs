@@ -31,7 +31,6 @@ namespace AlexStore
 
                 updateLabel.Text = "Added stock!";
             }
-           
         }
 
         private void productBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,11 +49,21 @@ namespace AlexStore
             if(!Validation.ValidateControl(productBox))
             {
                 IsValid = false;
+                errorAddStock.SetError(productBox, "Please select a product.");
+            }
+            else
+            {
+                errorAddStock.SetError(productBox, "");
             }
 
             if(!Validation.ValidateControl(addedStock))
             {
                 IsValid = false;
+                errorAddStock.SetError(addedStock, "Please add stock.");
+            }
+            else
+            {
+                errorAddStock.SetError(addedStock, "");
             }
 
             return IsValid;

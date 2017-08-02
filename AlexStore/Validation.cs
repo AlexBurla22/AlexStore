@@ -104,10 +104,6 @@ namespace AlexStore
             return true;
         }
 
-        public void HighlightControl(Control control)
-        {
-
-        }
     }
 }
 

@@ -109,31 +109,61 @@ namespace AlexStore
             if(!Validation.ValidateControl(compNameBox, Validation.ValidationType.Default))
             {
                 IsValid = false;
+                errorSale.SetError(compNameBox, "Please enter company name.");
+            }
+            else
+            {
+                errorSale.SetError(compNameBox, "");
             }
 
             if (!Validation.ValidateControl(emailJuridBox, Validation.ValidationType.Email))
             {
                 IsValid = false;
+                errorSale.SetError(emailJuridBox, "Please enter email address.");
+            }
+            else
+            {
+                errorSale.SetError(emailJuridBox, "");
             }
 
             if (!Validation.ValidateControl(juridPhoneBox, Validation.ValidationType.Phone))
             {
                 IsValid = false;
+                errorSale.SetError(juridPhoneBox, "Please enter a phone number.");
+            }
+            else
+            {
+                errorSale.SetError(juridPhoneBox, "");
             }
 
             if (!Validation.ValidateControl(city2Box, Validation.ValidationType.City))
             {
                 IsValid = false;
+                errorSale.SetError(city2Box, "Please enter city.");
+            }
+            else
+            {
+                errorSale.SetError(city2Box, "");
             }
 
             if (!Validation.ValidateControl(address2Box, Validation.ValidationType.Default))
             {
                 IsValid = false;
+                errorSale.SetError(address2Box, "Please enter address.");
+            }
+            else
+            {
+                errorSale.SetError(address2Box, "");
             }
 
             if (!Validation.ValidateControl(cuiBox, Validation.ValidationType.Default))
             {
                 IsValid = false;
+                errorSale.SetError(cuiBox, "Please enter CUI.");
+            }
+            else
+            {
+                errorSale.SetError(cuiBox, "");
             }
 
             return IsValid;
@@ -146,36 +176,71 @@ namespace AlexStore
             if (!Validation.ValidateControl(firstNameBox, Validation.ValidationType.Default))
             {
                 IsValid = false;
+                errorSale.SetError(firstNameBox, "Please enter first name.");
+            }
+            else
+            {
+                errorSale.SetError(firstNameBox, "");
             }
 
             if (!Validation.ValidateControl(lastNameBox, Validation.ValidationType.Default))
             {
                 IsValid = false;
+                errorSale.SetError(lastNameBox, "Please enter last name.");
+            }
+            else
+            {
+                errorSale.SetError(lastNameBox, "");
             }
 
             if (!Validation.ValidateControl(emailBox, Validation.ValidationType.Email))
             {
                 IsValid = false;
+                errorSale.SetError(emailBox, "Please enter a valid email.");
+            }
+            else
+            {
+                errorSale.SetError(emailBox, "");
             }
 
             if (!Validation.ValidateControl(phoneBox, Validation.ValidationType.Phone))
             {
                 IsValid = false;
+                errorSale.SetError(phoneBox, "Please enter a phone number.");
+            }
+            else
+            {
+                errorSale.SetError(phoneBox, "");
             }
 
             if (!Validation.ValidateControl(cityBox, Validation.ValidationType.City))
             {
                 IsValid = false;
+                errorSale.SetError(cityBox, "Please enter city.");
+            }
+            else
+            {
+                errorSale.SetError(cityBox, "");
             }
 
             if (!Validation.ValidateControl(addresBox, Validation.ValidationType.Default))
             {
                 IsValid = false;
+                errorSale.SetError(addresBox, "Please enter address.");
+            }
+            else
+            {
+                errorSale.SetError(addresBox, "");
             }
 
             if (!Validation.ValidateControl(cnpBox, Validation.ValidationType.CNP))
             {
                 IsValid = false;
+                errorSale.SetError(cnpBox, "Please enter CNP.");
+            }
+            else
+            {
+                errorSale.SetError(cnpBox, "");
             }
 
             return IsValid;

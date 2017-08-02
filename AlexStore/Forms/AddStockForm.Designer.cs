@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.updateControls = new System.Windows.Forms.GroupBox();
             this.updateLabel = new System.Windows.Forms.Label();
             this.updateBtn = new System.Windows.Forms.Button();
@@ -37,8 +38,10 @@
             this.stockText = new System.Windows.Forms.Label();
             this.productBox = new System.Windows.Forms.ComboBox();
             this.chooseLabel = new System.Windows.Forms.Label();
+            this.errorAddStock = new System.Windows.Forms.ErrorProvider(this.components);
             this.updateControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addedStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorAddStock)).BeginInit();
             this.SuspendLayout();
             // 
             // updateControls
@@ -137,6 +140,12 @@
             this.chooseLabel.TabIndex = 0;
             this.chooseLabel.Text = "Choose product";
             // 
+            // errorAddStock
+            // 
+            this.errorAddStock.BlinkRate = 0;
+            this.errorAddStock.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorAddStock.ContainerControl = this;
+            // 
             // AddStockForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,6 +159,7 @@
             this.updateControls.ResumeLayout(false);
             this.updateControls.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addedStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorAddStock)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -165,5 +175,6 @@
         private System.Windows.Forms.NumericUpDown addedStock;
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Label updateLabel;
+        private System.Windows.Forms.ErrorProvider errorAddStock;
     }
 }

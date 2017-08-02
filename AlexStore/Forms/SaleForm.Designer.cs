@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -70,12 +71,14 @@
             this.addBtn = new System.Windows.Forms.Button();
             this.sbmitBtn = new System.Windows.Forms.Button();
             this.prodsBox = new System.Windows.Forms.ComboBox();
+            this.errorSale = new System.Windows.Forms.ErrorProvider(this.components);
             this.contactBox.SuspendLayout();
             this.juridPanel.SuspendLayout();
             this.physicalPanel.SuspendLayout();
             this.box.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSale)).BeginInit();
             this.SuspendLayout();
             // 
             // contactBox
@@ -497,6 +500,12 @@
             this.prodsBox.Size = new System.Drawing.Size(528, 21);
             this.prodsBox.TabIndex = 8;
             // 
+            // errorSale
+            // 
+            this.errorSale.BlinkRate = 0;
+            this.errorSale.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorSale.ContainerControl = this;
+            // 
             // SaleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -518,6 +527,7 @@
             this.box.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSale)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -562,5 +572,6 @@
         private System.Windows.Forms.TextBox phoneBox;
         private System.Windows.Forms.TextBox emailBox;
         private System.Windows.Forms.TextBox cnpBox;
+        private System.Windows.Forms.ErrorProvider errorSale;
     }
 }

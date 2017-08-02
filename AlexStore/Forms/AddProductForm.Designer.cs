@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.productProps = new System.Windows.Forms.GroupBox();
             this.brandBox = new System.Windows.Forms.ComboBox();
             this.categBox = new System.Windows.Forms.ComboBox();
@@ -41,9 +42,11 @@
             this.categoryLabel = new System.Windows.Forms.Label();
             this.nameBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.errorAddProduct = new System.Windows.Forms.ErrorProvider(this.components);
             this.productProps.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stockBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorAddProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // productProps
@@ -176,6 +179,12 @@
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Product name";
             // 
+            // errorAddProduct
+            // 
+            this.errorAddProduct.BlinkRate = 0;
+            this.errorAddProduct.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorAddProduct.ContainerControl = this;
+            // 
             // AddProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,6 +199,7 @@
             this.productProps.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stockBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorAddProduct)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -209,5 +219,6 @@
         private System.Windows.Forms.NumericUpDown priceBox;
         private System.Windows.Forms.ComboBox brandBox;
         private System.Windows.Forms.ComboBox categBox;
+        private System.Windows.Forms.ErrorProvider errorAddProduct;
     }
 }

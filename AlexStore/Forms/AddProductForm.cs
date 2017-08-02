@@ -46,26 +46,51 @@ namespace AlexStore
             if (!Validation.ValidateControl(nameBox, Validation.ValidationType.Default))
             {
                 IsValid = false;
+                errorAddProduct.SetError(nameBox, "Please enter product name.");
+            }
+            else
+            {
+                errorAddProduct.SetError(nameBox, "");
             }
 
             if (!Validation.ValidateControl(categBox))
             {
                 IsValid = false;
+                errorAddProduct.SetError(categBox, "Please select a category.");
+            }
+            else
+            {
+                errorAddProduct.SetError(categBox, "");
             }
 
             if(!Validation.ValidateControl(brandBox))
             {
                 IsValid = false;
+                errorAddProduct.SetError(brandBox, "Please selecet a brand.");
+            }
+            else
+            {
+                errorAddProduct.SetError(brandBox, "");
             }
 
             if(!Validation.ValidateControl(priceBox))
             {
                 IsValid = false;
+                errorAddProduct.SetError(priceBox, "Please enter product price.");
+            }
+            else
+            {
+                errorAddProduct.SetError(priceBox, "");
             }
 
             if (!Validation.ValidateControl(stockBox))
             {
                 IsValid = false;
+                errorAddProduct.SetError(stockBox, "Please enter product stock.");
+            }
+            else
+            {
+                errorAddProduct.SetError(stockBox, "");
             }
 
             return IsValid;
