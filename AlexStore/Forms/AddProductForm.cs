@@ -25,15 +25,15 @@ namespace AlexStore
         {
             if (ValidateControls())
             {
-                //Product product = new Product();
+                Product product = new Product();
 
-                //product.Name = nameBox.Text;
-                //product.Category = (int)categBox.SelectedValue;
-                //product.Brand = (int)brandBox.SelectedValue;
-                //product.Price = priceBox.Value;
-                //product.Stock = (int)stockBox.Value;
+                product.Name = nameBox.Text;
+                product.Category = (int)categBox.SelectedValue;
+                product.Brand = (int)brandBox.SelectedValue;
+                product.Price = priceBox.Value;
+                product.Stock = (int)stockBox.Value;
 
-                //Product.AddProduct(product);
+                Product.AddProduct(product);
 
                 addedLabel.Text = "Product was added!";
             }
