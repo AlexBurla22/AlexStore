@@ -20,7 +20,7 @@ namespace AlexStore
         {
             InitializeComponent();
             FillGridView("getProductsFullSP", productGridView);
-            FillGridView("SELECT * FROM Sales", saleGridView);
+            FillGridView("getFullSales", saleGridView);
         }
 
         private void addBtn_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace AlexStore
 
         private void saleFormClosed(object sender, FormClosedEventArgs e)
         {
-            RefreshGridView("SELECT * FROM Sales", saleGridView);
+            RefreshGridView("getFullSales", saleGridView);
             RefreshGridView("getProductsFullSP", productGridView);
         }
 

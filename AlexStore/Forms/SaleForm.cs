@@ -27,6 +27,7 @@ namespace AlexStore
             productsGrid.DataSource = dataTable;
             priceLabel.Text = "Total: " + total;
             MainForm.FillComboBox("Products WHERE StatusID = 1;", "ProductName", "ProductID", prodsBox);
+            MainForm.FillComboBox("Buyers", "Name", "BuyerID", buyerCB);
         }
 
         private void physRadio_CheckedChanged(object sender, EventArgs e)
@@ -55,50 +56,18 @@ namespace AlexStore
 
         private void sbmitBtn_Click(object sender, EventArgs e)
         {
-            if (jurRadio.Checked == true)
+            if (!Validation.ValidateControl(buyerCB))
             {
-                if (ValidateJuridPanel() && ValidateProductList(productIDs))
-                {
-                    //JuridPerson jPerson = new JuridPerson();
-
-                    //jPerson.CompanyName = compNameBox.Text;
-                    //jPerson.Email = emailJuridBox.Text;
-                    //jPerson.Phone = juridPhoneBox.Text;
-                    //jPerson.City = city2Box.Text;
-                    //jPerson.Address = address2Box.Text;
-                    //jPerson.Cui = cuiBox.Text;
-
-                    //jPerson.GenerateSale(dataTable);
-                    //RemoveQuantityFromStock();
-
-                    checkLabel.Visible = true;
-                }
+                errorSale.SetError(buyerCB, "Please select a buyer.");
             }
-
-            else if(physRadio.Checked == true)
+            else if(ValidateProductList(productIDs))
             {
-                if (ValidatePhysicalPanel() && ValidateProductList(productIDs))
-                {
-                    //PhysPerson pPerson = new PhysPerson();
-
-                    //pPerson.FirstName = firstNameBox.Text;
-                    //pPerson.LastName = lastNameBox.Text;
-                    //pPerson.Email = emailBox.Text;
-                    //pPerson.City = cityBox.Text;
-                    //pPerson.Address = addresBox.Text;
-                    //pPerson.Phone = phoneBox.Text;
-                    //pPerson.Cnp = cnpBox.Text;
-
-                    //pPerson.GenerateSale(dataTable);
-                    //RemoveQuantityFromStock();
-
-                    checkLabel.Visible = true;
-                }
+                errorSale.SetError(buyerCB, "");
+                //GenerateSale();
             }
-
             else
-	        {
-                MessageBox.Show("Select a person type.");
+            {
+                errorSale.SetError(buyerCB, "");
             }
         }
 
@@ -354,6 +323,65 @@ namespace AlexStore
             dr["Price"] = product.Price;
 
             dt.Rows.InsertAt(dr, pos);
+        }
+
+        private void addBuyerBTN_Click(object sender, EventArgs e)
+        {
+            if (jurRadio.Checked == true)
+            {
+                if (ValidateJuridPanel())
+                {
+                    JuridPerson jPerson = new JuridPerson();
+
+                    jPerson.CompanyName = compNameBox.Text;
+                    jPerson.Email = emailJuridBox.Text;
+                    jPerson.Phone = juridPhoneBox.Text;
+                    jPerson.City = city2Box.Text;
+                    jPerson.Address = address2Box.Text;
+                    jPerson.Cui = cuiBox.Text;
+
+                    if (!jPerson.Exists())
+                    {
+                        jPerson.InsertBuyer();
+                        addedLabel.Visible = true;
+                        MainForm.FillComboBox("Buyers", "Name", "BuyerID", buyerCB);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Company already exists. Please select it from the buyers list.");
+                    }
+                }
+            }
+            else if (physRadio.Checked == true)
+            {
+                if (ValidatePhysicalPanel())
+                {
+                    PhysPerson pPerson = new PhysPerson();
+
+                    pPerson.FirstName = firstNameBox.Text;
+                    pPerson.LastName = lastNameBox.Text;
+                    pPerson.Email = emailBox.Text;
+                    pPerson.City = cityBox.Text;
+                    pPerson.Address = addresBox.Text;
+                    pPerson.Phone = phoneBox.Text;
+                    pPerson.Cnp = cnpBox.Text;
+
+                    if(!pPerson.Exists())
+                    {
+                        pPerson.InsertBuyer();
+                        addedLabel.Visible = true;
+                        MainForm.FillComboBox("Buyers", "Name", "BuyerID", buyerCB);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Person already exists. Please select it from the buyers list.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a person type.");
+            }
         }
     }
 }
