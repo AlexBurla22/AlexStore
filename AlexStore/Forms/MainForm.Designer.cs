@@ -37,6 +37,7 @@
             this.productGridView = new System.Windows.Forms.DataGridView();
             this.salePage = new System.Windows.Forms.TabPage();
             this.saleGridView = new System.Windows.Forms.DataGridView();
+            this.auditBtn = new System.Windows.Forms.Button();
             this.controlBox.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.productPage.SuspendLayout();
@@ -64,7 +65,7 @@
             this.controlBox.Controls.Add(this.addBtn);
             this.controlBox.Location = new System.Drawing.Point(12, 12);
             this.controlBox.Name = "controlBox";
-            this.controlBox.Size = new System.Drawing.Size(156, 462);
+            this.controlBox.Size = new System.Drawing.Size(156, 473);
             this.controlBox.TabIndex = 7;
             this.controlBox.TabStop = false;
             this.controlBox.Text = "Controls";
@@ -96,10 +97,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Controls.Add(this.productPage);
             this.tabControl.Controls.Add(this.salePage);
-            this.tabControl.Location = new System.Drawing.Point(174, 12);
+            this.tabControl.Location = new System.Drawing.Point(174, 25);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(655, 462);
+            this.tabControl.Size = new System.Drawing.Size(655, 460);
             this.tabControl.TabIndex = 8;
             // 
             // productPage
@@ -108,7 +109,7 @@
             this.productPage.Location = new System.Drawing.Point(4, 22);
             this.productPage.Name = "productPage";
             this.productPage.Padding = new System.Windows.Forms.Padding(3);
-            this.productPage.Size = new System.Drawing.Size(647, 436);
+            this.productPage.Size = new System.Drawing.Size(647, 434);
             this.productPage.TabIndex = 0;
             this.productPage.Text = "Products";
             this.productPage.UseVisualStyleBackColor = true;
@@ -128,7 +129,7 @@
             this.productGridView.Name = "productGridView";
             this.productGridView.ReadOnly = true;
             this.productGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.productGridView.Size = new System.Drawing.Size(641, 430);
+            this.productGridView.Size = new System.Drawing.Size(641, 428);
             this.productGridView.TabIndex = 0;
             // 
             // salePage
@@ -137,7 +138,7 @@
             this.salePage.Location = new System.Drawing.Point(4, 22);
             this.salePage.Name = "salePage";
             this.salePage.Padding = new System.Windows.Forms.Padding(3);
-            this.salePage.Size = new System.Drawing.Size(633, 436);
+            this.salePage.Size = new System.Drawing.Size(647, 436);
             this.salePage.TabIndex = 1;
             this.salePage.Text = "Sales";
             this.salePage.UseVisualStyleBackColor = true;
@@ -157,15 +158,27 @@
             this.saleGridView.Name = "saleGridView";
             this.saleGridView.ReadOnly = true;
             this.saleGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.saleGridView.Size = new System.Drawing.Size(627, 430);
+            this.saleGridView.Size = new System.Drawing.Size(641, 430);
             this.saleGridView.TabIndex = 0;
             this.saleGridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.saleGridView_RowHeaderMouseDoubleClick);
+            // 
+            // auditBtn
+            // 
+            this.auditBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.auditBtn.Location = new System.Drawing.Point(750, 12);
+            this.auditBtn.Name = "auditBtn";
+            this.auditBtn.Size = new System.Drawing.Size(75, 23);
+            this.auditBtn.TabIndex = 9;
+            this.auditBtn.Text = "Audit";
+            this.auditBtn.UseVisualStyleBackColor = true;
+            this.auditBtn.Click += new System.EventHandler(this.auditBtn_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 486);
+            this.ClientSize = new System.Drawing.Size(841, 497);
+            this.Controls.Add(this.auditBtn);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.controlBox);
             this.Name = "MainForm";
@@ -192,6 +205,7 @@
         private System.Windows.Forms.TabPage salePage;
         private System.Windows.Forms.DataGridView productGridView;
         private System.Windows.Forms.DataGridView saleGridView;
+        private System.Windows.Forms.Button auditBtn;
     }
 }
 

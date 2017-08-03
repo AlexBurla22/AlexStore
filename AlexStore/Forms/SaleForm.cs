@@ -30,6 +30,7 @@ namespace AlexStore
             MainForm.FillComboBox("Buyers", "Name", "BuyerID", buyerCB);
         }
 
+        #region ShowPanels
         private void physRadio_CheckedChanged(object sender, EventArgs e)
         {
             if (physRadio.Checked == true)
@@ -53,29 +54,14 @@ namespace AlexStore
                 juridPanel.Visible = false;
             }
         }
+        #endregion
 
-        private void sbmitBtn_Click(object sender, EventArgs e)
-        {
-            if (!Validation.ValidateControl(buyerCB))
-            {
-                errorSale.SetError(buyerCB, "Please select a buyer.");
-            }
-            else if(ValidateProductList(productIDs))
-            {
-                errorSale.SetError(buyerCB, "");
-                //GenerateSale();
-            }
-            else
-            {
-                errorSale.SetError(buyerCB, "");
-            }
-        }
-
+        #region Validation
         private bool ValidateJuridPanel()
         {
             bool IsValid = true;
 
-            if(!Validation.ValidateControl(compNameBox, Validation.ValidationType.Default))
+            if (!Validation.ValidateControl(compNameBox, Validation.ValidationType.Default))
             {
                 IsValid = false;
                 errorSale.SetError(compNameBox, "Please enter company name.");
@@ -217,33 +203,31 @@ namespace AlexStore
 
         private bool ValidateProductList(List<Int32> list)
         {
-            if(!list.Any())
+            if (!list.Any())
             {
                 MessageBox.Show("Please add a product.");
                 return false;
             }
             return true;
         }
+        #endregion
 
-        private void RemoveQuantityFromStock()
+        #region Buttons
+        private void sbmitBtn_Click(object sender, EventArgs e)
         {
-            foreach (DataRow row in dataTable.Rows)
+            if (!Validation.ValidateControl(buyerCB))
             {
-                SqlConnection conn = new SqlConnection();
-                conn = ConnectSQL.OpenConnection();
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "UPDATE Products SET Products.Stock = Products.Stock - @quantity WHERE Products.ProductID = @productID;";
-
-                    cmd.Parameters.AddWithValue("@quantity", row["Quantity"]);
-                    cmd.Parameters.AddWithValue("@productID", row["ProductID"]);
-
-                    cmd.ExecuteNonQuery();
-                }
-
-                ConnectSQL.CloseConnection(conn);
+                errorSale.SetError(buyerCB, "Please select a buyer.");
+            }
+            else if (ValidateProductList(productIDs))
+            {
+                errorSale.SetError(buyerCB, "");
+                checkLabel.Visible = true;
+                //GenerateSale();
+            }
+            else
+            {
+                errorSale.SetError(buyerCB, "");
             }
         }
 
@@ -290,41 +274,6 @@ namespace AlexStore
 
         }
 
-        private DataTable CreateTable()
-        {
-            DataTable dt = new DataTable();
-            DataColumn dc = new DataColumn();
-
-            dc = new DataColumn("ProductID", typeof(Int32));
-            dc.ReadOnly = true;
-            dt.Columns.Add(dc);
-
-            dc = new DataColumn("ProductName", typeof(String));
-            dc.ReadOnly = true;
-            dt.Columns.Add(dc);
-
-            dc = new DataColumn("Quantity", typeof(Int32));
-            dt.Columns.Add(dc);
-
-            dc = new DataColumn("Price", typeof(Decimal));
-            dc.ReadOnly = true;
-            dt.Columns.Add(dc);
-
-            return dt;
-        }
-
-        public void ProductToTable(Int32 productID, Product product, DataTable dt)
-        {
-            DataRow dr = dt.NewRow();
-
-            dr["ProductID"] = productID;
-            dr["ProductName"] = product.Name;
-            dr["Quantity"] = quantity;
-            dr["Price"] = product.Price;
-
-            dt.Rows.InsertAt(dr, pos);
-        }
-
         private void addBuyerBTN_Click(object sender, EventArgs e)
         {
             if (jurRadio.Checked == true)
@@ -366,7 +315,7 @@ namespace AlexStore
                     pPerson.Phone = phoneBox.Text;
                     pPerson.Cnp = cnpBox.Text;
 
-                    if(!pPerson.Exists())
+                    if (!pPerson.Exists())
                     {
                         pPerson.InsertBuyer();
                         addedLabel.Visible = true;
@@ -383,5 +332,64 @@ namespace AlexStore
                 MessageBox.Show("Select a person type.");
             }
         }
+        #endregion
+
+        private void RemoveQuantityFromStock()
+        {
+            foreach (DataRow row in dataTable.Rows)
+            {
+                SqlConnection conn = new SqlConnection();
+                conn = ConnectSQL.OpenConnection();
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "UPDATE Products SET Products.Stock = Products.Stock - @quantity WHERE Products.ProductID = @productID;";
+
+                    cmd.Parameters.AddWithValue("@quantity", row["Quantity"]);
+                    cmd.Parameters.AddWithValue("@productID", row["ProductID"]);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                ConnectSQL.CloseConnection(conn);
+            }
+        }
+
+        private DataTable CreateTable()
+        {
+            DataTable dt = new DataTable();
+            DataColumn dc = new DataColumn();
+
+            dc = new DataColumn("ProductID", typeof(Int32));
+            dc.ReadOnly = true;
+            dt.Columns.Add(dc);
+
+            dc = new DataColumn("ProductName", typeof(String));
+            dc.ReadOnly = true;
+            dt.Columns.Add(dc);
+
+            dc = new DataColumn("Quantity", typeof(Int32));
+            dt.Columns.Add(dc);
+
+            dc = new DataColumn("Price", typeof(Decimal));
+            dc.ReadOnly = true;
+            dt.Columns.Add(dc);
+
+            return dt;
+        }
+
+        public void ProductToTable(Int32 productID, Product product, DataTable dt)
+        {
+            DataRow dr = dt.NewRow();
+
+            dr["ProductID"] = productID;
+            dr["ProductName"] = product.Name;
+            dr["Quantity"] = quantity;
+            dr["Price"] = product.Price;
+
+            dt.Rows.InsertAt(dr, pos);
+        }
+        
     }
 }
