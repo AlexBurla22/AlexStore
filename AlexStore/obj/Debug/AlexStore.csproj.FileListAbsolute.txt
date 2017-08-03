@@ -12,3 +12,17 @@ C:\Users\alexandru.sirbu\Documents\Visual Studio 2017\Projects\AlexStore\AlexSto
 C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\obj\Debug\AlexStore.Properties.Resources.resources
 C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\obj\Debug\AlexStore.AddStockForm.resources
 C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\obj\Debug\AlexStore.Forms.ProductListForm.resources
+H:\Proiecte Alex\AlexStore\AlexStore\bin\Debug\AlexStore.exe
+H:\Proiecte Alex\AlexStore\AlexStore\bin\Debug\AlexStore.pdb
+H:\Proiecte Alex\AlexStore\AlexStore\bin\Debug\ConnectDB.dll
+H:\Proiecte Alex\AlexStore\AlexStore\bin\Debug\ConnectDB.pdb
+H:\Proiecte Alex\AlexStore\AlexStore\obj\Debug\AlexStore.csprojResolveAssemblyReference.cache
+H:\Proiecte Alex\AlexStore\AlexStore\obj\Debug\AlexStore.AddProductForm.resources
+H:\Proiecte Alex\AlexStore\AlexStore\obj\Debug\AlexStore.MainForm.resources
+H:\Proiecte Alex\AlexStore\AlexStore\obj\Debug\AlexStore.Forms.ProductListForm.resources
+H:\Proiecte Alex\AlexStore\AlexStore\obj\Debug\AlexStore.Properties.Resources.resources
+H:\Proiecte Alex\AlexStore\AlexStore\obj\Debug\AlexStore.SaleForm.resources
+H:\Proiecte Alex\AlexStore\AlexStore\obj\Debug\AlexStore.AddStockForm.resources
+H:\Proiecte Alex\AlexStore\AlexStore\obj\Debug\AlexStore.csproj.GenerateResource.Cache
+H:\Proiecte Alex\AlexStore\AlexStore\obj\Debug\AlexStore.exe
+H:\Proiecte Alex\AlexStore\AlexStore\obj\Debug\AlexStore.pdb
