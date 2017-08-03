@@ -9,6 +9,12 @@ namespace AlexStore
 {
     public abstract class Person
     {
+        public enum PersonType
+        {
+            Physical = 1,
+            Juridical
+        }
+
         private string _city;
         private string _address;
         private string _phone;
@@ -78,6 +84,7 @@ namespace AlexStore
         }
         #endregion
 
-        public abstract void GenerateSale(DataTable productList);
+        public abstract bool Exists();
+        public abstract void InsertBuyer();
     }
 }

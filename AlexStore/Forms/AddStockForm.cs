@@ -24,10 +24,10 @@ namespace AlexStore
         {
             if (ValidateControls())
             {
-                //int prodID = (int)productBox.SelectedValue;
-                //int stockToAdd = (int)addedStock.Value;
+                int prodID = (int)productBox.SelectedValue;
+                int stockToAdd = (int)addedStock.Value;
 
-                //Product.AddStock(prodID, stockToAdd);
+                Product.AddStock(prodID, stockToAdd);
 
                 updateLabel.Text = "Added stock!";
             }

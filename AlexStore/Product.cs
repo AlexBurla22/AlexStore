@@ -11,6 +11,12 @@ namespace AlexStore
 {
     public class Product
     {
+        public enum StatusCodes
+        {
+            Active = 1,
+            Inactive
+        }
+
         private string _name;
         private int _brand;
         private int _category;
@@ -103,7 +109,7 @@ namespace AlexStore
                     conn = ConnectSQL.OpenConnection();
 
                     cmd.CommandText = "INSERT INTO Products(ProductName, CategoryID, BrandID, Price, Stock, StatusID)" +
-                        "VALUES(@productName, @categoryID, @brandID, @price, @stock, 1);";
+                        "VALUES(@productName, @categoryID, @brandID, @price, @stock, @status);";
                     cmd.Connection = conn;
 
                     cmd.Parameters.AddWithValue("@productName", product.Name);
@@ -111,6 +117,7 @@ namespace AlexStore
                     cmd.Parameters.AddWithValue("@brandID", product.Brand);
                     cmd.Parameters.AddWithValue("@price", product.Price);
                     cmd.Parameters.AddWithValue("@stock", product.Stock);
+                    cmd.Parameters.AddWithValue("@status", StatusCodes.Active);
 
                     cmd.ExecuteNonQuery();
 

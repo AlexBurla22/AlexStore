@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.contactBox = new System.Windows.Forms.GroupBox();
             this.juridPanel = new System.Windows.Forms.Panel();
             this.emailJuridBox = new System.Windows.Forms.TextBox();
@@ -72,6 +72,10 @@
             this.sbmitBtn = new System.Windows.Forms.Button();
             this.prodsBox = new System.Windows.Forms.ComboBox();
             this.errorSale = new System.Windows.Forms.ErrorProvider(this.components);
+            this.buyerCB = new System.Windows.Forms.ComboBox();
+            this.addBuyerBTN = new System.Windows.Forms.Button();
+            this.buyersGroupBox = new System.Windows.Forms.GroupBox();
+            this.addedLabel = new System.Windows.Forms.Label();
             this.contactBox.SuspendLayout();
             this.juridPanel.SuspendLayout();
             this.physicalPanel.SuspendLayout();
@@ -79,6 +83,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.quantityUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorSale)).BeginInit();
+            this.buyersGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // contactBox
@@ -90,12 +95,12 @@
             this.contactBox.Controls.Add(this.physicalPanel);
             this.contactBox.Controls.Add(this.physRadio);
             this.contactBox.Controls.Add(this.jurRadio);
-            this.contactBox.Location = new System.Drawing.Point(12, 3);
+            this.contactBox.Location = new System.Drawing.Point(12, 74);
             this.contactBox.Name = "contactBox";
-            this.contactBox.Size = new System.Drawing.Size(242, 435);
+            this.contactBox.Size = new System.Drawing.Size(242, 250);
             this.contactBox.TabIndex = 2;
             this.contactBox.TabStop = false;
-            this.contactBox.Text = "Contact";
+            this.contactBox.Text = "Add buyer";
             // 
             // juridPanel
             // 
@@ -113,7 +118,7 @@
             this.juridPanel.Controls.Add(this.companyLabel);
             this.juridPanel.Location = new System.Drawing.Point(12, 42);
             this.juridPanel.Name = "juridPanel";
-            this.juridPanel.Size = new System.Drawing.Size(212, 257);
+            this.juridPanel.Size = new System.Drawing.Size(212, 165);
             this.juridPanel.TabIndex = 2;
             this.juridPanel.Visible = false;
             // 
@@ -216,9 +221,6 @@
             // 
             // physicalPanel
             // 
-            this.physicalPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.physicalPanel.Controls.Add(this.cnpBox);
             this.physicalPanel.Controls.Add(this.phoneBox);
             this.physicalPanel.Controls.Add(this.emailBox);
@@ -235,7 +237,7 @@
             this.physicalPanel.Controls.Add(this.firstNameLabel);
             this.physicalPanel.Location = new System.Drawing.Point(9, 42);
             this.physicalPanel.Name = "physicalPanel";
-            this.physicalPanel.Size = new System.Drawing.Size(215, 322);
+            this.physicalPanel.Size = new System.Drawing.Size(215, 187);
             this.physicalPanel.TabIndex = 2;
             this.physicalPanel.Visible = false;
             // 
@@ -394,7 +396,7 @@
             // checkLabel
             // 
             this.checkLabel.AutoSize = true;
-            this.checkLabel.Location = new System.Drawing.Point(361, 402);
+            this.checkLabel.Location = new System.Drawing.Point(381, 404);
             this.checkLabel.Name = "checkLabel";
             this.checkLabel.Size = new System.Drawing.Size(36, 13);
             this.checkLabel.TabIndex = 6;
@@ -437,34 +439,34 @@
             this.productsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.productsGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.productsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.productsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productsGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productsGrid.DefaultCellStyle = dataGridViewCellStyle8;
             this.productsGrid.Location = new System.Drawing.Point(6, 71);
             this.productsGrid.Name = "productsGrid";
             this.productsGrid.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.productsGrid.Size = new System.Drawing.Size(528, 316);
             this.productsGrid.TabIndex = 3;
             // 
@@ -506,11 +508,52 @@
             this.errorSale.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorSale.ContainerControl = this;
             // 
+            // buyerCB
+            // 
+            this.buyerCB.FormattingEnabled = true;
+            this.buyerCB.Location = new System.Drawing.Point(21, 28);
+            this.buyerCB.Name = "buyerCB";
+            this.buyerCB.Size = new System.Drawing.Size(195, 21);
+            this.buyerCB.TabIndex = 3;
+            // 
+            // addBuyerBTN
+            // 
+            this.addBuyerBTN.Location = new System.Drawing.Point(170, 336);
+            this.addBuyerBTN.Name = "addBuyerBTN";
+            this.addBuyerBTN.Size = new System.Drawing.Size(75, 54);
+            this.addBuyerBTN.TabIndex = 3;
+            this.addBuyerBTN.Text = "Add new buyer";
+            this.addBuyerBTN.UseVisualStyleBackColor = true;
+            this.addBuyerBTN.Click += new System.EventHandler(this.addBuyerBTN_Click);
+            // 
+            // buyersGroupBox
+            // 
+            this.buyersGroupBox.Controls.Add(this.buyerCB);
+            this.buyersGroupBox.Location = new System.Drawing.Point(12, 3);
+            this.buyersGroupBox.Name = "buyersGroupBox";
+            this.buyersGroupBox.Size = new System.Drawing.Size(242, 65);
+            this.buyersGroupBox.TabIndex = 4;
+            this.buyersGroupBox.TabStop = false;
+            this.buyersGroupBox.Text = "Buyers";
+            // 
+            // addedLabel
+            // 
+            this.addedLabel.AutoSize = true;
+            this.addedLabel.Location = new System.Drawing.Point(18, 336);
+            this.addedLabel.Name = "addedLabel";
+            this.addedLabel.Size = new System.Drawing.Size(41, 13);
+            this.addedLabel.TabIndex = 5;
+            this.addedLabel.Text = "Added!";
+            this.addedLabel.Visible = false;
+            // 
             // SaleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 450);
+            this.Controls.Add(this.addedLabel);
+            this.Controls.Add(this.buyersGroupBox);
+            this.Controls.Add(this.addBuyerBTN);
             this.Controls.Add(this.box);
             this.Controls.Add(this.contactBox);
             this.MaximizeBox = false;
@@ -528,7 +571,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.quantityUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorSale)).EndInit();
+            this.buyersGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -573,5 +618,9 @@
         private System.Windows.Forms.TextBox emailBox;
         private System.Windows.Forms.TextBox cnpBox;
         private System.Windows.Forms.ErrorProvider errorSale;
+        private System.Windows.Forms.ComboBox buyerCB;
+        private System.Windows.Forms.Button addBuyerBTN;
+        private System.Windows.Forms.GroupBox buyersGroupBox;
+        private System.Windows.Forms.Label addedLabel;
     }
 }

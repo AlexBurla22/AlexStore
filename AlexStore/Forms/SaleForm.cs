@@ -27,8 +27,10 @@ namespace AlexStore
             productsGrid.DataSource = dataTable;
             priceLabel.Text = "Total: " + total;
             MainForm.FillComboBox("Products WHERE StatusID = 1;", "ProductName", "ProductID", prodsBox);
+            MainForm.FillComboBox("Buyers", "Name", "BuyerID", buyerCB);
         }
 
+        #region ShowPanels
         private void physRadio_CheckedChanged(object sender, EventArgs e)
         {
             if (physRadio.Checked == true)
@@ -52,61 +54,14 @@ namespace AlexStore
                 juridPanel.Visible = false;
             }
         }
+        #endregion
 
-        private void sbmitBtn_Click(object sender, EventArgs e)
-        {
-            if (jurRadio.Checked == true)
-            {
-                if (ValidateJuridPanel() && ValidateProductList(productIDs))
-                {
-                    //JuridPerson jPerson = new JuridPerson();
-
-                    //jPerson.CompanyName = compNameBox.Text;
-                    //jPerson.Email = emailJuridBox.Text;
-                    //jPerson.Phone = juridPhoneBox.Text;
-                    //jPerson.City = city2Box.Text;
-                    //jPerson.Address = address2Box.Text;
-                    //jPerson.Cui = cuiBox.Text;
-
-                    //jPerson.GenerateSale(dataTable);
-                    //RemoveQuantityFromStock();
-
-                    checkLabel.Visible = true;
-                }
-            }
-
-            else if(physRadio.Checked == true)
-            {
-                if (ValidatePhysicalPanel() && ValidateProductList(productIDs))
-                {
-                    //PhysPerson pPerson = new PhysPerson();
-
-                    //pPerson.FirstName = firstNameBox.Text;
-                    //pPerson.LastName = lastNameBox.Text;
-                    //pPerson.Email = emailBox.Text;
-                    //pPerson.City = cityBox.Text;
-                    //pPerson.Address = addresBox.Text;
-                    //pPerson.Phone = phoneBox.Text;
-                    //pPerson.Cnp = cnpBox.Text;
-
-                    //pPerson.GenerateSale(dataTable);
-                    //RemoveQuantityFromStock();
-
-                    checkLabel.Visible = true;
-                }
-            }
-
-            else
-	        {
-                MessageBox.Show("Select a person type.");
-            }
-        }
-
+        #region Validation
         private bool ValidateJuridPanel()
         {
             bool IsValid = true;
 
-            if(!Validation.ValidateControl(compNameBox, Validation.ValidationType.Default))
+            if (!Validation.ValidateControl(compNameBox, Validation.ValidationType.Default))
             {
                 IsValid = false;
                 errorSale.SetError(compNameBox, "Please enter company name.");
@@ -248,33 +203,31 @@ namespace AlexStore
 
         private bool ValidateProductList(List<Int32> list)
         {
-            if(!list.Any())
+            if (!list.Any())
             {
                 MessageBox.Show("Please add a product.");
                 return false;
             }
             return true;
         }
+        #endregion
 
-        private void RemoveQuantityFromStock()
+        #region Buttons
+        private void sbmitBtn_Click(object sender, EventArgs e)
         {
-            foreach (DataRow row in dataTable.Rows)
+            if (!Validation.ValidateControl(buyerCB))
             {
-                SqlConnection conn = new SqlConnection();
-                conn = ConnectSQL.OpenConnection();
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "UPDATE Products SET Products.Stock = Products.Stock - @quantity WHERE Products.ProductID = @productID;";
-
-                    cmd.Parameters.AddWithValue("@quantity", row["Quantity"]);
-                    cmd.Parameters.AddWithValue("@productID", row["ProductID"]);
-
-                    cmd.ExecuteNonQuery();
-                }
-
-                ConnectSQL.CloseConnection(conn);
+                errorSale.SetError(buyerCB, "Please select a buyer.");
+            }
+            else if (ValidateProductList(productIDs))
+            {
+                errorSale.SetError(buyerCB, "");
+                checkLabel.Visible = true;
+                //GenerateSale();
+            }
+            else
+            {
+                errorSale.SetError(buyerCB, "");
             }
         }
 
@@ -321,6 +274,88 @@ namespace AlexStore
 
         }
 
+        private void addBuyerBTN_Click(object sender, EventArgs e)
+        {
+            if (jurRadio.Checked == true)
+            {
+                if (ValidateJuridPanel())
+                {
+                    JuridPerson jPerson = new JuridPerson();
+
+                    jPerson.CompanyName = compNameBox.Text;
+                    jPerson.Email = emailJuridBox.Text;
+                    jPerson.Phone = juridPhoneBox.Text;
+                    jPerson.City = city2Box.Text;
+                    jPerson.Address = address2Box.Text;
+                    jPerson.Cui = cuiBox.Text;
+
+                    if (!jPerson.Exists())
+                    {
+                        jPerson.InsertBuyer();
+                        addedLabel.Visible = true;
+                        MainForm.FillComboBox("Buyers", "Name", "BuyerID", buyerCB);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Company already exists. Please select it from the buyers list.");
+                    }
+                }
+            }
+            else if (physRadio.Checked == true)
+            {
+                if (ValidatePhysicalPanel())
+                {
+                    PhysPerson pPerson = new PhysPerson();
+
+                    pPerson.FirstName = firstNameBox.Text;
+                    pPerson.LastName = lastNameBox.Text;
+                    pPerson.Email = emailBox.Text;
+                    pPerson.City = cityBox.Text;
+                    pPerson.Address = addresBox.Text;
+                    pPerson.Phone = phoneBox.Text;
+                    pPerson.Cnp = cnpBox.Text;
+
+                    if (!pPerson.Exists())
+                    {
+                        pPerson.InsertBuyer();
+                        addedLabel.Visible = true;
+                        MainForm.FillComboBox("Buyers", "Name", "BuyerID", buyerCB);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Person already exists. Please select it from the buyers list.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a person type.");
+            }
+        }
+        #endregion
+
+        private void RemoveQuantityFromStock()
+        {
+            foreach (DataRow row in dataTable.Rows)
+            {
+                SqlConnection conn = new SqlConnection();
+                conn = ConnectSQL.OpenConnection();
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "UPDATE Products SET Products.Stock = Products.Stock - @quantity WHERE Products.ProductID = @productID;";
+
+                    cmd.Parameters.AddWithValue("@quantity", row["Quantity"]);
+                    cmd.Parameters.AddWithValue("@productID", row["ProductID"]);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                ConnectSQL.CloseConnection(conn);
+            }
+        }
+
         private DataTable CreateTable()
         {
             DataTable dt = new DataTable();
@@ -355,5 +390,6 @@ namespace AlexStore
 
             dt.Rows.InsertAt(dr, pos);
         }
+        
     }
 }

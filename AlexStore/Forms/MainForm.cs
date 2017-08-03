@@ -20,19 +20,15 @@ namespace AlexStore
         {
             InitializeComponent();
             FillGridView("getProductsFullSP", productGridView);
-            FillGridView("SELECT * FROM Sales", saleGridView);
+            FillGridView("getFullSales", saleGridView);
         }
 
+        #region Buttons
         private void addBtn_Click(object sender, EventArgs e)
         {
             AddProductForm addForm = new AddProductForm();
             addForm.FormClosed += new FormClosedEventHandler(addFormClosed);
             addForm.ShowDialog();
-        }
-
-        private void addFormClosed(object sender, FormClosedEventArgs e)
-        {
-            RefreshGridView("getProductsFullSP", productGridView);
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
@@ -42,11 +38,6 @@ namespace AlexStore
             updateForm.ShowDialog();
         }
 
-        private void updateFormClosed(object sender, FormClosedEventArgs e)
-        {
-            RefreshGridView("getProductsFullSP", productGridView);
-        }
-
         private void saleBtn_Click(object sender, EventArgs e)
         {
             SaleForm saleForm = new SaleForm();
@@ -54,11 +45,36 @@ namespace AlexStore
             saleForm.ShowDialog();
         }
 
-        private void saleFormClosed(object sender, FormClosedEventArgs e)
+        private void saleGridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            RefreshGridView("SELECT * FROM Sales", saleGridView);
+            DataGridViewRow row = saleGridView.Rows[e.RowIndex];
+            ProductListForm pLF = new ProductListForm((int)row.Cells["SaleID"].Value);
+            pLF.Show();
+        }
+
+        private void auditBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region OnClosed
+        private void addFormClosed(object sender, FormClosedEventArgs e)
+        {
             RefreshGridView("getProductsFullSP", productGridView);
         }
+
+        private void updateFormClosed(object sender, FormClosedEventArgs e)
+        {
+            RefreshGridView("getProductsFullSP", productGridView);
+        }
+
+        private void saleFormClosed(object sender, FormClosedEventArgs e)
+        {
+            RefreshGridView("getFullSales", saleGridView);
+            RefreshGridView("getProductsFullSP", productGridView);
+        }
+        #endregion
 
         private void RefreshGridView(string spName, DataGridView gridView)
         {
@@ -85,12 +101,6 @@ namespace AlexStore
             box.ValueMember = value;
         }
 
-        private void saleGridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            DataGridViewRow row = saleGridView.Rows[e.RowIndex];
-            ProductListForm pLF = new ProductListForm((int)row.Cells["SaleID"].Value);
-            pLF.Show();
-        }
     }
 
 }
