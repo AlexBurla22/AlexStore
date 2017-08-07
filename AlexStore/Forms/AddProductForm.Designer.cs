@@ -76,6 +76,7 @@
             // brandBox
             // 
             this.brandBox.FormattingEnabled = true;
+            this.brandBox.IntegralHeight = false;
             this.brandBox.Location = new System.Drawing.Point(114, 77);
             this.brandBox.Name = "brandBox";
             this.brandBox.Size = new System.Drawing.Size(121, 21);

@@ -125,6 +125,7 @@
             // productBox
             // 
             this.productBox.FormattingEnabled = true;
+            this.productBox.IntegralHeight = false;
             this.productBox.Location = new System.Drawing.Point(119, 27);
             this.productBox.Name = "productBox";
             this.productBox.Size = new System.Drawing.Size(109, 21);
