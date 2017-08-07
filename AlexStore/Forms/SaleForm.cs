@@ -257,6 +257,7 @@ namespace AlexStore
 
                 ConnectSQL.InsertProductList(dataTable);
                 conn.Close();
+                RemoveQuantityFromStock();
             }
         }
 

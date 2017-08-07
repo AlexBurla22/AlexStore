@@ -38,6 +38,7 @@
             this.dataAuditView.AllowUserToDeleteRows = false;
             this.dataAuditView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataAuditView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataAuditView.BackgroundColor = System.Drawing.SystemColors.Desktop;
             this.dataAuditView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataAuditView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataAuditView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -51,6 +52,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(689, 380);
             this.Controls.Add(this.dataAuditView);
             this.Name = "AuditForm";
