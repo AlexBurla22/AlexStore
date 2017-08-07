@@ -120,7 +120,7 @@
             this.productGridView.AllowUserToDeleteRows = false;
             this.productGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.productGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.productGridView.BackgroundColor = System.Drawing.SystemColors.ControlDark;
+            this.productGridView.BackgroundColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.productGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.productGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.productGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -138,7 +138,7 @@
             this.salePage.Location = new System.Drawing.Point(4, 22);
             this.salePage.Name = "salePage";
             this.salePage.Padding = new System.Windows.Forms.Padding(3);
-            this.salePage.Size = new System.Drawing.Size(647, 436);
+            this.salePage.Size = new System.Drawing.Size(647, 434);
             this.salePage.TabIndex = 1;
             this.salePage.Text = "Sales";
             this.salePage.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             this.saleGridView.AllowUserToDeleteRows = false;
             this.saleGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.saleGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.saleGridView.BackgroundColor = System.Drawing.SystemColors.ControlDark;
+            this.saleGridView.BackgroundColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.saleGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.saleGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.saleGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -158,7 +158,7 @@
             this.saleGridView.Name = "saleGridView";
             this.saleGridView.ReadOnly = true;
             this.saleGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.saleGridView.Size = new System.Drawing.Size(641, 430);
+            this.saleGridView.Size = new System.Drawing.Size(641, 428);
             this.saleGridView.TabIndex = 0;
             this.saleGridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.saleGridView_RowHeaderMouseDoubleClick);
             // 

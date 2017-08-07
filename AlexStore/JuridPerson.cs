@@ -45,7 +45,7 @@ namespace AlexStore
             }
         }
         #endregion
-
+        
         public override bool Exists()
         {
             SqlConnection conn = new SqlConnection();
