@@ -58,6 +58,7 @@
             this.Name = "AuditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Audit";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataAuditView)).EndInit();
             this.ResumeLayout(false);
 

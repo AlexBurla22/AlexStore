@@ -420,6 +420,14 @@ namespace AlexStore
 
             dt.Rows.InsertAt(dr, pos);
         }
-        
+
+        private void prodsBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int productID;
+            if (Int32.TryParse(prodsBox.SelectedValue.ToString(), out productID))
+            {
+                currStock.Text = "Stock: " + Product.GetProductStock(productID);
+            }
+        }
     }
 }
