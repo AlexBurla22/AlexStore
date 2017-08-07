@@ -54,7 +54,8 @@ namespace AlexStore
 
         private void auditBtn_Click(object sender, EventArgs e)
         {
-
+            AuditForm frm = new AuditForm();    
+            frm.Show();
         }
         #endregion
 

@@ -26,3 +26,4 @@ H:\Proiecte Alex\AlexStore\AlexStore\obj\Debug\AlexStore.AddStockForm.resources
 H:\Proiecte Alex\AlexStore\AlexStore\obj\Debug\AlexStore.csproj.GenerateResource.Cache
 H:\Proiecte Alex\AlexStore\AlexStore\obj\Debug\AlexStore.exe
 H:\Proiecte Alex\AlexStore\AlexStore\obj\Debug\AlexStore.pdb
+C:\Users\alexandru.sirbu\documents\visual studio 2017\Projects\AlexStore\AlexStore\obj\Debug\AlexStore.Forms.AuditForm.resources
