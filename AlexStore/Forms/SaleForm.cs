@@ -17,6 +17,7 @@ namespace AlexStore
         public DataTable dataTable;
         int pos = 0;
         int quantity;
+        int buyerID;
         decimal total = 0;
         List<Int32> productIDs = new List<Int32>();
 
@@ -223,11 +224,39 @@ namespace AlexStore
             {
                 errorSale.SetError(buyerCB, "");
                 checkLabel.Visible = true;
-                //GenerateSale();
+                Int32.TryParse(buyerCB.SelectedValue.ToString(), out buyerID);
+                GenerateSale(buyerID, dataTable);
             }
             else
             {
                 errorSale.SetError(buyerCB, "");
+            }
+        }
+
+        private void GenerateSale(int buyerID, DataTable dataTable)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn = ConnectSQL.OpenConnection();
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = "makeSale";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@saleDate", DateTime.Now);
+                cmd.Parameters.AddWithValue("@buyerID", buyerID);
+                cmd.Parameters.Add("@output", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                cmd.ExecuteNonQuery();
+
+                DataColumn dc = new DataColumn("SaleID", typeof(int));
+                dc.DefaultValue = cmd.Parameters["@output"].Value;
+
+                dataTable.Columns.Add(dc);
+
+                ConnectSQL.InsertProductList(dataTable);
+                conn.Close();
             }
         }
 
