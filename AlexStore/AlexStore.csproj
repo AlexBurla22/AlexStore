@@ -70,6 +70,7 @@
       <DependentUpon>ProductListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="JuridPerson.cs" />
+    <Compile Include="Matrice.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PhysPerson.cs" />
     <Compile Include="Product.cs" />
