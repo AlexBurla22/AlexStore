@@ -19,9 +19,8 @@ namespace AlexStore
         public MainForm()
         {
             InitializeComponent();
-            FillGridView("getProductsFullSP", productGridView);
+            FillGridView("getFullProducts", productGridView);
             FillGridView("getFullSales", saleGridView);
-            Matrice.Build();
         }
 
         #region Buttons
@@ -58,23 +57,28 @@ namespace AlexStore
             AuditForm frm = new AuditForm();    
             frm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Matrice.Build();
+        }
         #endregion
 
         #region OnClosed
         private void addFormClosed(object sender, FormClosedEventArgs e)
         {
-            RefreshGridView("getProductsFullSP", productGridView);
+            RefreshGridView("getFullProducts", productGridView);
         }
 
         private void updateFormClosed(object sender, FormClosedEventArgs e)
         {
-            RefreshGridView("getProductsFullSP", productGridView);
+            RefreshGridView("getFullProducts", productGridView);
         }
 
         private void saleFormClosed(object sender, FormClosedEventArgs e)
         {
             RefreshGridView("getFullSales", saleGridView);
-            RefreshGridView("getProductsFullSP", productGridView);
+            RefreshGridView("getFullProducts", productGridView);
         }
         #endregion
 
@@ -101,8 +105,7 @@ namespace AlexStore
             box.DataSource = table;
             box.DisplayMember = member;
             box.ValueMember = value;
-        }
-
+        } 
     }
 
 }

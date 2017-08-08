@@ -38,6 +38,7 @@
             this.salePage = new System.Windows.Forms.TabPage();
             this.saleGridView = new System.Windows.Forms.DataGridView();
             this.auditBtn = new System.Windows.Forms.Button();
+            this.matrBtn = new System.Windows.Forms.Button();
             this.controlBox.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.productPage.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             this.controlBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.controlBox.Controls.Add(this.matrBtn);
             this.controlBox.Controls.Add(this.saleBtn);
             this.controlBox.Controls.Add(this.updateBtn);
             this.controlBox.Controls.Add(this.addBtn);
@@ -173,6 +175,16 @@
             this.auditBtn.UseVisualStyleBackColor = true;
             this.auditBtn.Click += new System.EventHandler(this.auditBtn_Click);
             // 
+            // matrBtn
+            // 
+            this.matrBtn.Location = new System.Drawing.Point(18, 122);
+            this.matrBtn.Name = "matrBtn";
+            this.matrBtn.Size = new System.Drawing.Size(121, 26);
+            this.matrBtn.TabIndex = 10;
+            this.matrBtn.Text = "Matrice";
+            this.matrBtn.UseVisualStyleBackColor = true;
+            this.matrBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +218,7 @@
         private System.Windows.Forms.DataGridView productGridView;
         private System.Windows.Forms.DataGridView saleGridView;
         private System.Windows.Forms.Button auditBtn;
+        private System.Windows.Forms.Button matrBtn;
     }
 }
 
