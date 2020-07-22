@@ -12,10 +12,10 @@ namespace ConnectDB
     public class ConnectSQL
     {
         public static SqlConnection
-            GetDBConnection(string datasource, string database, string user, string pswd)
+            GetDBConnection(string datasource, string database)
         {
             string connString = @"Data Source=" + datasource + ";Initial Catalog=" + database +
-                ";Persist Security Info=true;User ID=" + user + ";Password=" + pswd;
+                ";Integrated Security=SSPI;";
 
             SqlConnection conn = new SqlConnection(connString);
 
@@ -26,7 +26,7 @@ namespace ConnectDB
         {
             try
             {
-                SqlConnection conn = GetDBConnection("(local)", "AlexDB", "sa", "enter03IT");
+                SqlConnection conn = GetDBConnection("(local)", "AlexDB");
 
                 conn.Open();
                 return conn;
@@ -84,5 +84,4 @@ namespace ConnectDB
             }
         }
     }
-
 }

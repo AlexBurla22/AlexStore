@@ -8,3 +8,9 @@ H:\Proiecte Alex\AlexStore\ConnectDB\bin\Debug\ConnectDB.pdb
 H:\Proiecte Alex\AlexStore\ConnectDB\obj\Debug\ConnectDB.csprojResolveAssemblyReference.cache
 H:\Proiecte Alex\AlexStore\ConnectDB\obj\Debug\ConnectDB.dll
 H:\Proiecte Alex\AlexStore\ConnectDB\obj\Debug\ConnectDB.pdb
+C:\Users\Alex\Source\Repos\AlexStore\ConnectDB\bin\Debug\ConnectDB.dll
+C:\Users\Alex\Source\Repos\AlexStore\ConnectDB\bin\Debug\ConnectDB.pdb
+C:\Users\Alex\Source\Repos\AlexStore\ConnectDB\obj\Debug\ConnectDB.csprojAssemblyReference.cache
+C:\Users\Alex\Source\Repos\AlexStore\ConnectDB\obj\Debug\ConnectDB.csproj.CoreCompileInputs.cache
+C:\Users\Alex\Source\Repos\AlexStore\ConnectDB\obj\Debug\ConnectDB.dll
+C:\Users\Alex\Source\Repos\AlexStore\ConnectDB\obj\Debug\ConnectDB.pdb
